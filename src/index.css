@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 245 245 241;
+  --panel: 255 255 255;
+  --sunken: 236 237 233;
+  --ink: 20 24 31;
+  --muted: 88 96 110;
+  --rule: 214 217 222;
+  --ok: 22 128 70;
+  --bad: 196 43 43;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: 13 16 21;
+  --panel: 23 27 35;
+  --sunken: 31 36 46;
+  --ink: 241 243 246;
+  --muted: 163 171 184;
+  --rule: 52 59 72;
+  --ok: 74 201 126;
+  --bad: 255 112 112;
+  color-scheme: dark;
+}
+
+html {
+  font-size: 16px;
+}
+/*
+ * Escala global: en pantallas de escritorio y proyector, TODO (textos, botones, espacios)
+ * crece o se encoge en proporción al ancho y al alto de la ventana, para que cada parada
+ * quepa en pantalla. Cambia --escala para hacer todo más grande (>1) o más chico (<1).
+ */
+:root {
+  --escala: 1;
+}
+@media (min-width: 1024px) {
+  html {
+    font-size: clamp(12px, calc(min(1vw, 1.78vh) * var(--escala)), 30px);
+  }
+}
+
+body {
+  @apply bg-bg text-ink font-sans antialiased;
+  margin: 0;
+  min-height: 100vh;
+}
+
+svg text {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 3px solid rgb(var(--ink));
+  outline-offset: 3px;
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-cond text-sm font-semibold uppercase tracking-[0.18em] text-muted;
+  }
+  .card {
+    @apply rounded-xl border border-rule bg-panel;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-rule bg-panel px-4 py-2 font-semibold text-ink transition-colors hover:bg-sunken disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-solid {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-4 py-2 font-semibold text-bg transition-opacity hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+}
+
+/* Simulador "Hora pico": pasajeros que caminan hacia la estación */
+@keyframes pasajero {
+  from {
+    left: 0%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  to {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
