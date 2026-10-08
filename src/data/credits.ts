@@ -1,13 +1,11 @@
 /* CRÉDITOS — reemplaza estos datos por los de tu equipo. */
 
 export const credits = {
-  // TODO: escribir los nombres reales del equipo.
-  team: ['Nombre Apellido 1', 'Nombre Apellido 2', 'Nombre Apellido 3', 'Nombre Apellido 4'],
-  // TODO: completar materia, docente, institución y fecha.
-  course: 'Nombre de la materia',
-  teacher: 'Nombre de la profesora',
-  school: 'Nombre de la universidad',
-  date: 'Mes y año',
+  team: ['Alan Tello', 'Daniel Trejo'],
+  course: 'Arquitectura y calidad de sistemas de cómputo',
+  teacher: 'Martha Patricia Hernandez Zamora',
+  school: 'Universidad Madero',
+  date: 'Octubre 2026',
 }
 
 /**
